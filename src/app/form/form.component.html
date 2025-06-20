@@ -1,0 +1,31 @@
+<p>form works!</p>
+
+<form [formGroup]="userForm" (ngSubmit)="submitData()">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter Name" formControlName="name">
+    </div>
+    <div>
+        <label for="name">Email:</label>
+        <input type="text" name="email" id="email" placeholder="Enter Email" formControlName="email">
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password" placeholder="Enter Password" formControlName="password">
+    </div>
+    <div>
+        <label for="confPassword">ConfPassword:</label>
+        <input type="text" name="confPassword" id="confPassword" placeholder="Enter ConfPassword" formControlName="confPassword">
+    </div>
+    <div>
+        <button type="submit" [disabled]="!userForm.valid">Submit</button>
+    </div>
+</form>
+
+<div *ngFor="let el of userListData; let i = index">
+    <h2>{{el.name}}</h2>
+    <h2>{{el.email}}</h2>
+    <button (click)="deleteData(i)">Delete</button>
+    <button (click)="editData(i)">Edit</button>
+    
+</div>
